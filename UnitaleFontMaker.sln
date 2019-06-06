@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitaleFontMaker", "UnitaleFontMaker\UnitaleFontMaker.csproj", "{CEFA3C75-85A1-4AE4-9E54-0C9B6948E80A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEFA3C75-85A1-4AE4-9E54-0C9B6948E80A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFA3C75-85A1-4AE4-9E54-0C9B6948E80A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFA3C75-85A1-4AE4-9E54-0C9B6948E80A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFA3C75-85A1-4AE4-9E54-0C9B6948E80A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
