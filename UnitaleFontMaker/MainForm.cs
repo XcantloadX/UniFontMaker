@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace UnitaleFontMaker
 {
@@ -18,7 +19,13 @@ namespace UnitaleFontMaker
 		private string chars;
         private Color fontColor = Color.White;
         private const string enChars = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ";
-
+        private List<string> characters = new List<string>();
+        public string ModPath
+		{
+			get { return txtboxModPath.Text; }
+		}
+        
+        
         public MainForm()
 		{
 			InitializeComponent();
@@ -274,25 +281,85 @@ namespace UnitaleFontMaker
 			}
             dialog.Dispose();
 		}
-
-        //自动模式选择框
-        void ChkboxAutoModeCheckedChanged(object sender, EventArgs e)
-		{
-            bool enabled = true;
-            if (chkboxAutoMode.Checked)
-                enabled = false;
-			else
-                enabled = true;
-
-            btnAddChar.Enabled = enabled;
-            btnClear.Enabled = enabled;
-            btnAddEnChar.Enabled = enabled;
-		}
 		
 		//自动模式的帮助
 		void BtnAutoModeHtlpClick(object sender, EventArgs e)
 		{
 			MessageBox.Show("If you enable this option, the text in all Lua files will be automatically scanned and added to the font.", "Auto Mode Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+		
+		//自动扫描
+		void BtnScanClick(object sender, EventArgs e)
+		{
+			List<string> luaFiles = new List<string>();
+			GetAllDirectory(ModPath, luaFiles);
+			
+			for (int i = 0; i < luaFiles.Count; i++) 
+			{
+				string[] strs = GetAllStrings(File.ReadAllText(luaFiles[i]));
+			}
+		}
+		
+		/// <summary>
+		/// 获取Lua文件中的所有字符串
+		/// </summary>
+		/// <param name="lua">Lua文件的内容</param>
+		/// <returns>获取到的字符串</returns>
+		private string[] GetAllStrings(string lua)
+		{
+			int length = lua.Length;
+			int index = 0;
+			
+			//TODO: 完成提取字符串的方法
+			
+			while(index <= length)
+			{
+				int start = lua.IndexOf('"', index);
+				int end = lua.IndexOf('"', start + 1);
+				string str = lua.Substring(start + 1, end - start - 1);
+				//MessageBox.Show(str);
+				index = end + 1;
+			}
+			
+			return null;
+		}
+		
+		/// <summary>
+		/// 递归获取指定文件夹和子文件夹中的所有Lua文件
+		/// </summary>
+		/// <param name="path">指定路径</param>
+		/// <param name="luaFiles">返回寻找到的Lua文件</param>
+		private void GetAllDirectory(string path, List<string> luaFiles)
+		{
+			DirectoryInfo root = new DirectoryInfo(path);
+			DirectoryInfo[] dirs = root.GetDirectories();
+			
+			//扫描所有Lua文件
+			FileInfo[] files = GetAllFiles(path);
+			for (int i = 0; i < files.Length; i++) 
+			{
+				if(files[i].Extension == ".lua")
+					luaFiles.Add(files[i].FullName);
+			}
+			
+			//递归所有子文件夹
+			for (int i = 0; i < dirs.Length; i++) 
+			{
+				GetAllDirectory(dirs[i].FullName, luaFiles);
+			}
+			
+		}
+		
+		/// <summary>
+		/// 获取指定文件夹中的所有文件
+		/// </summary>
+		/// <param name="path">指定文件夹</param>
+		private FileInfo[] GetAllFiles(string path)
+		{
+			DirectoryInfo root = new DirectoryInfo(path);
+			FileInfo[] files = root.GetFiles();
+			
+			return files;
 		}
 
 
