@@ -9,6 +9,9 @@ using System.Diagnostics;
 namespace UnitaleFontMaker
 {
 
+    /// <summary>
+    /// 字体绘制
+    /// </summary>
 	public class FontPainter
 	{
 		private Graphics gImage;
@@ -22,13 +25,18 @@ namespace UnitaleFontMaker
 		
 		public Font font;
 		
+        /// <summary>
+        /// 字体的颜色
+        /// </summary>
 		public Color TextColor
 		{
 			get { return brush.Color; }
 			set { brush.Color = value; }
 		}
 
-			
+        /// <summary>
+        /// 待绘制的文本
+        /// </summary>
 		public string Text
 		{
 			get { return str; }
@@ -40,7 +48,7 @@ namespace UnitaleFontMaker
 			get { return new Size(width, height); }
 			set 
 			{
-				Size s = ((Size)value);
+				Size s = value;
 				width = s.Width;
 				height = s.Height;
 				
@@ -70,29 +78,29 @@ namespace UnitaleFontMaker
 		
 		public void Paint()
 		{
-			//gImage.FillRectangle(backBrush, 0, 0, this.width, this.height);
-			gImage.Clear(Color.FromArgb(0, 0, 0, 0));
+			gImage.Clear(Color.FromArgb(0, 0, 0, 0)); //使用透明颜色清除背景
 			
+            //获取所有字符
 			Character[] chars = GetCharacters();
 			if(chars == null)
 				return;
 			
+            //遍历绘制字符
 			for (int i = 0; i < chars.Length; i++) 
 			{
-				int x = (int)chars[i].X;
-				int y = (int)chars[i].Y;
-				int width = (int)chars[i].Width;
-				int height = (int)chars[i].Height;
-				
-				gImage.DrawString(chars[i].Char.ToString(), font, brush, x, y, format);
+                gImage.DrawString(chars[i].Char.ToString(), font, brush, chars[i].X, chars[i].Y);
 			}
+
 		}
 		
+        /// <summary>
+        /// 保存图片到指定路径
+        /// </summary>
+        /// <param name="path">图片路径</param>
 		public void Save(string path)
 		{
 			Paint();
 			image.Save(path);
-			
 		}
 		
 		public Bitmap GetImage()

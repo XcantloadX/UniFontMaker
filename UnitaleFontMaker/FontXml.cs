@@ -54,6 +54,10 @@ namespace UnitaleFontMaker
 			font.AppendChild(spriteSheet);
 		}
 		
+        /// <summary>
+        /// 保存 XML 文件
+        /// </summary>
+        /// <param name="path">保存路径</param>
 		public void Save(string path)
 		{
 			for (int i = 0; i < Characters.Length; i++) 
@@ -75,7 +79,12 @@ namespace UnitaleFontMaker
 			doc.Save(path);
 		}
 		
-		public string CheckSpecialChar(string str)
+        /// <summary>
+        /// 检查特殊字符并替换
+        /// </summary>
+        /// <param name="str">待检查的字符</param>
+        /// <returns>替换后的结果</returns>
+		private string CheckSpecialChar(string str)
 		{
 			switch (str) 
 			{

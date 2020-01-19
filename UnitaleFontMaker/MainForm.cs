@@ -9,7 +9,7 @@ using System.Text;
 namespace UnitaleFontMaker
 {
 	/// <summary>
-	/// Description of MainForm.
+	/// 主界面
 	/// </summary>
 	public partial class MainForm : Form
 	{
@@ -18,7 +18,6 @@ namespace UnitaleFontMaker
 		private int height;
 		private string chars;
         private Color fontColor = Color.White;
-        private const string enChars = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ";
         private List<string> characters = new List<string>();
         public string ModPath
 		{
@@ -33,52 +32,10 @@ namespace UnitaleFontMaker
 			Brush brush = Brushes.White;
 			painter = new FontPainter(font, 400, 400);
             picboxColor.BackColor = fontColor;
-		}
-		
-        /// <summary>
-        /// 显示一个带错误图标的信息框
-        /// </summary>
-        /// <param name="str">要显示的信息</param>
-		private void ShowError(string str)
-		{
-			MessageBox.Show(str, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		}
-		
-		private void CopyDir( string srcPath, string aimPath )
-		{
-			try {
-				/* 检查目标目录是否以目录分割字符结束如果不是则添加 */
-				if ( aimPath[aimPath.Length - 1] != System.IO.Path.DirectorySeparatorChar )
-				{
-					aimPath += System.IO.Path.DirectorySeparatorChar;
-				}
-				/* 判断目标目录是否存在如果不存在则新建 */
-				if ( !System.IO.Directory.Exists( aimPath ) )
-				{
-					System.IO.Directory.CreateDirectory( aimPath );
-				}
-				/*
-				* 得到源目录的文件列表，该里面是包含文件以及目录路径的一个数组
-				* 如果你指向copy目标文件下面的文件而不包含目录请使用下面的方法
-				* string[] fileList = Directory.GetFiles（srcPath）；
-				*/
-				string[] fileList = System.IO.Directory.GetFileSystemEntries( srcPath );
-				/* 遍历所有的文件和目录 */
-				foreach ( string file in fileList )
-				{
-					/* 先当作目录处理如果存在这个目录就递归Copy该目录下面的文件 */
-					if ( System.IO.Directory.Exists( file ) )
-					{
-						CopyDir( file, aimPath + System.IO.Path.GetFileName( file ) );
-					}
-					/* 否则直接Copy文件 */
-					else {
-						System.IO.File.Copy( file, aimPath + System.IO.Path.GetFileName( file ), true );
-					}
-				}
-			} catch ( Exception e ) {
-				throw;
-			}
+
+            //自动添加必须添加的字符
+            chars += Characters.MUST_CHARS;
+            labCharNum.Text = "Character: " + chars.Length;
 		}
 		
         //自动保存
@@ -97,7 +54,7 @@ namespace UnitaleFontMaker
 				Directory.Move(modFontPath, Path.Combine(new DirectoryInfo(modFontPath).Parent.FullName, "Fonts_backup"));
 			
 			//复制默认字体文件
-			CopyDir(defaultFontPath, modFontPath);
+			Utils.CopyDir(defaultFontPath, modFontPath);
 			
 			//删除要替换的字体文件
 			File.Delete(Path.Combine(modFontPath, "uidialog.png"));
@@ -151,14 +108,14 @@ namespace UnitaleFontMaker
             //检查字体名称
             if (string.IsNullOrWhiteSpace(comboxType.Text))
             {
-                ShowError("Please enter a font name!");
+                Utils.ShowError("Please enter a font name!");
                 return false;
             }
 
             //检查字符是否为空
             if(string.IsNullOrEmpty(chars))
             {
-                ShowError("You have not added a character yet!");
+                Utils.ShowError("You have not added a character yet!");
                 return false;
             }
 
@@ -166,14 +123,14 @@ namespace UnitaleFontMaker
             Regex regex = new Regex(@"[^\u4e00-\u9fa5]");
             if(!regex.IsMatch(chars))
             {
-                ShowError("No English characters found, please add to the font!");
+                Utils.ShowError("No English characters found!");
                 return false;
             }
 
             //检查行距
             if(string.IsNullOrWhiteSpace(txtboxLineSpacing.Text))
             {
-                ShowError("Line spacing is empty.");
+                Utils.ShowError("Line spacing is empty.");
                 return false;
             }
 
@@ -181,9 +138,9 @@ namespace UnitaleFontMaker
             {
                 int.Parse(txtboxLineSpacing.Text);
             }
-            catch (Exception e)
+            catch
             {
-                ShowError("Invalid line spacing.");
+                Utils.ShowError("Invalid line spacing.");
                 return false;
             }
 
@@ -206,9 +163,9 @@ namespace UnitaleFontMaker
 				width = int.Parse(txtboxX.Text);
 				height = int.Parse(txtboxY.Text);
 			} 
-			catch (Exception ex) 
+			catch
 			{
-				ShowError("Invalid size.");
+				Utils.ShowError("Invalid size.");
 			}
 			
 			painter.Text = chars;
@@ -241,13 +198,6 @@ namespace UnitaleFontMaker
             labCharNum.Text = "No characters, please add from text file.";
         }
 
-        //增加英文字符
-        private void btnAddEnChar_Click(object sender, EventArgs e)
-        {
-            chars += enChars;
-            labCharNum.Text = "Character: " + chars.Length;
-        }
-
         //--------------字体颜色设置部分---------------
         //选择颜色
         private void btnChooseColor_Click(object sender, EventArgs e)
@@ -272,11 +222,11 @@ namespace UnitaleFontMaker
 			if(dialog.ShowDialog() == DialogResult.OK)
 			{
 				string path = dialog.SelectedPath;
-				if(!Directory.Exists(Path.Combine(path, "Lua")))
+				/*if(!Directory.Exists(Path.Combine(path, "Lua")))
 				{
-					ShowError("Invalid mod directory(Must have a \"Lua\" directory).");
+					Utils.ShowError("Invalid mod directory(Must have a \"Lua\" directory).");
 					return;
-				}	
+				}	*/
 				txtboxModPath.Text = dialog.SelectedPath;
 			}
             dialog.Dispose();
@@ -332,10 +282,15 @@ namespace UnitaleFontMaker
 		private void GetAllDirectory(string path, List<string> luaFiles)
 		{
 			DirectoryInfo root = new DirectoryInfo(path);
+            if (!root.Exists)
+            {
+                Utils.ShowError("Lua directory not found!");
+                return;
+            }
 			DirectoryInfo[] dirs = root.GetDirectories();
 			
 			//扫描所有Lua文件
-			FileInfo[] files = GetAllFiles(path);
+			FileInfo[] files = Utils.GetAllFiles(path);
 			for (int i = 0; i < files.Length; i++) 
 			{
 				if(files[i].Extension == ".lua")
@@ -348,18 +303,6 @@ namespace UnitaleFontMaker
 				GetAllDirectory(dirs[i].FullName, luaFiles);
 			}
 			
-		}
-		
-		/// <summary>
-		/// 获取指定文件夹中的所有文件
-		/// </summary>
-		/// <param name="path">指定文件夹</param>
-		private FileInfo[] GetAllFiles(string path)
-		{
-			DirectoryInfo root = new DirectoryInfo(path);
-			FileInfo[] files = root.GetFiles();
-			
-			return files;
 		}
 
 

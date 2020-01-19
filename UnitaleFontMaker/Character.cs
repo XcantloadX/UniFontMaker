@@ -3,6 +3,9 @@ using System.Drawing;
 
 namespace UnitaleFontMaker
 {
+    /// <summary>
+    /// 单个字符
+    /// </summary>
 	public class Character
 	{
 		private char _char;
@@ -36,6 +39,8 @@ namespace UnitaleFontMaker
 			get { return rect.Height; }
 			set { rect.Height = value; }
 		}
+
+        public RectangleF RectF { get { return this.rect; } }
 		
 		public Character(char character, RectangleF rect)
 		{

@@ -1,19 +1,11 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Administrator
- * Date: 2019/6/1 星期六
- * Time: 17:36
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace UnitaleFontMaker
 {
 	/// <summary>
-	/// Description of PreviewForm.
+	/// 字体图像预览窗口
 	/// </summary>
 	public partial class PreviewForm : Form
 	{
@@ -24,6 +16,7 @@ namespace UnitaleFontMaker
 		public PreviewForm(FontPainter painter)
 		{
 			InitializeComponent();
+
 			this.painter = painter;
 			image = painter.GetImage();
 			imageSize = new Size(image.Width, image.Height);
@@ -55,18 +48,15 @@ namespace UnitaleFontMaker
 		{
 			string str = toolStripComboBox1.Text;
 			str = str.Replace("%", "");
-			try 
-			{
-				int scale = int.Parse(str) / 100;
-				int width = (int)(imageSize.Width * scale);
-				int height = (int)(imageSize.Height * scale);
-				Resize(width, height);
-			} 
-			catch (Exception ex) 
-			{
-				throw;
-			}
-			
+            try
+            {
+                int scale = int.Parse(str) / 100;
+                int width = (int)(imageSize.Width * scale);
+                int height = (int)(imageSize.Height * scale);
+                Resize(width, height);
+            }
+            catch { throw; }
+
 		}
 		
 	}
