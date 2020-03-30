@@ -51,8 +51,8 @@ namespace UnitaleFontMaker
             try
             {
                 int scale = int.Parse(str) / 100;
-                int width = (int)(imageSize.Width * scale);
-                int height = (int)(imageSize.Height * scale);
+                int width = (int)Math.Round( (double)(imageSize.Width * scale), 0);
+                int height = (int)Math.Round((double)(imageSize.Height * scale), 0);
                 Resize(width, height);
             }
             catch { throw; }
