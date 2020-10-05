@@ -13,10 +13,10 @@ Unitale/CYF 字体制作器
 
 ## 使用说明 How to use
 ### 制作字体
-1.点击 `Add` 从 txt 文件添加里字符，你可以在 `CharacterTemplate` 里找到常用汉字
-2.选择字体名称（`Font Name`），通常 `uidialog` 为旁白字体，`monster` 为怪物对话框字体，其他自行探索（有时间补充）
-3.行间距（`Line Spacing`）一般不需要改
-4.点击 `Change Font` 选择一个字体，建议的字体如下
+1.点击 `Add` 从 txt 文件添加里字符，你可以在 `CharacterTemplate` 里找到常用汉字  
+2.选择字体名称（`Font Name`），通常 `uidialog` 为旁白字体，`monster` 为怪物对话框字体，其他自行探索（有时间补充）  
+3.行间距（`Line Spacing`）一般不需要改  
+4.点击 `Change Font` 选择一个字体，建议的字体如下  
 ```
 宋体 四号 宽 1000 高 1400 行间距 30  
 Zpix 四号 宽 1000 高 1400 行间距 30  
