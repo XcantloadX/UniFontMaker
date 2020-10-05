@@ -93,10 +93,16 @@ namespace UnitaleFontMaker
 				return;
 			
             //遍历绘制字符
-			for (int i = 0; i < chars.Length; i++) 
-			{
-                gImage.DrawString(chars[i].Char.ToString(), font, brush, chars[i].X, chars[i].Y);
-			}
+            for (int i = 0; i < chars.Length; i++)
+            {
+                //TODO ！注意一定要取整！（因为 xml 文件里只能写整数坐标，待验证）
+                int x = (int)chars[i].X;
+                int y = (int)chars[i].Y;
+                int width = (int)chars[i].Width;
+                int height = (int)chars[i].Height;
+
+                gImage.DrawString(chars[i].Char.ToString(), font, brush, x, y, format);
+            }
 
 		}
 		
