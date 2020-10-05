@@ -5,8 +5,7 @@
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.Button btnAutoSave;
+        private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Button btnSaveFile;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button btnPreview;
@@ -18,8 +17,7 @@
 		private System.Windows.Forms.TextBox txtboxX;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label labCharNum;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.Button btnAutoModeHtlp;
+        private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Button btnOpenMod;
 		private System.Windows.Forms.TextBox txtboxModPath;
 		private System.Windows.Forms.Label label5;
@@ -46,14 +44,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.btnAutoSave = new System.Windows.Forms.Button();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnScan = new System.Windows.Forms.Button();
-            this.btnAutoModeHtlp = new System.Windows.Forms.Button();
             this.btnOpenMod = new System.Windows.Forms.Button();
             this.txtboxModPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -79,46 +75,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.picboxColor)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAutoSave
-            // 
-            this.btnAutoSave.Enabled = false;
-            this.btnAutoSave.Location = new System.Drawing.Point(9, 300);
-            this.btnAutoSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAutoSave.Name = "btnAutoSave";
-            this.btnAutoSave.Size = new System.Drawing.Size(78, 34);
-            this.btnAutoSave.TabIndex = 1;
-            this.btnAutoSave.Text = "Auto Save";
-            this.btnAutoSave.UseVisualStyleBackColor = true;
-            this.btnAutoSave.Click += new System.EventHandler(this.BtnAutoSaveClick);
-            // 
             // btnSaveFile
             // 
-            this.btnSaveFile.Location = new System.Drawing.Point(92, 300);
+            this.btnSaveFile.Location = new System.Drawing.Point(15, 303);
             this.btnSaveFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveFile.Name = "btnSaveFile";
-            this.btnSaveFile.Size = new System.Drawing.Size(94, 33);
+            this.btnSaveFile.Size = new System.Drawing.Size(113, 33);
             this.btnSaveFile.TabIndex = 2;
-            this.btnSaveFile.Text = "Save As File";
+            this.btnSaveFile.Text = "Save";
             this.btnSaveFile.UseVisualStyleBackColor = true;
             this.btnSaveFile.Click += new System.EventHandler(this.BtnSaveFileClick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(190, 300);
+            this.button2.Location = new System.Drawing.Point(135, 303);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 34);
+            this.button2.Size = new System.Drawing.Size(110, 34);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Set Font";
+            this.button2.Text = "Change Font";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2Click);
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(270, 300);
+            this.btnPreview.Location = new System.Drawing.Point(252, 303);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(2);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(70, 33);
+            this.btnPreview.Size = new System.Drawing.Size(117, 33);
             this.btnPreview.TabIndex = 4;
             this.btnPreview.Text = "Preview";
             this.btnPreview.UseVisualStyleBackColor = true;
@@ -137,7 +121,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnScan);
-            this.groupBox2.Controls.Add(this.btnAutoModeHtlp);
             this.groupBox2.Controls.Add(this.btnOpenMod);
             this.groupBox2.Controls.Add(this.txtboxModPath);
             this.groupBox2.Controls.Add(this.label5);
@@ -152,7 +135,6 @@
             // 
             // btnScan
             // 
-            this.btnScan.Enabled = false;
             this.btnScan.Location = new System.Drawing.Point(4, 39);
             this.btnScan.Margin = new System.Windows.Forms.Padding(2);
             this.btnScan.Name = "btnScan";
@@ -161,17 +143,6 @@
             this.btnScan.Text = "Auto Scan";
             this.btnScan.UseVisualStyleBackColor = true;
             this.btnScan.Click += new System.EventHandler(this.BtnScanClick);
-            // 
-            // btnAutoModeHtlp
-            // 
-            this.btnAutoModeHtlp.Location = new System.Drawing.Point(82, 42);
-            this.btnAutoModeHtlp.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAutoModeHtlp.Name = "btnAutoModeHtlp";
-            this.btnAutoModeHtlp.Size = new System.Drawing.Size(14, 18);
-            this.btnAutoModeHtlp.TabIndex = 8;
-            this.btnAutoModeHtlp.Text = "?";
-            this.btnAutoModeHtlp.UseVisualStyleBackColor = true;
-            this.btnAutoModeHtlp.Click += new System.EventHandler(this.BtnAutoModeHtlpClick);
             // 
             // btnOpenMod
             // 
@@ -191,8 +162,6 @@
             this.txtboxModPath.Name = "txtboxModPath";
             this.txtboxModPath.Size = new System.Drawing.Size(263, 21);
             this.txtboxModPath.TabIndex = 4;
-            this.txtboxModPath.Text = "C:\\Users\\Administrator\\Desktop\\杂项\\UNITALE Alpha 0.2.1a for Windows\\Mods\\Examples5" +
-                "454";
             // 
             // label5
             // 
@@ -234,9 +203,9 @@
             this.txtboxLineSpacing.Location = new System.Drawing.Point(89, 137);
             this.txtboxLineSpacing.Margin = new System.Windows.Forms.Padding(2);
             this.txtboxLineSpacing.Name = "txtboxLineSpacing";
-            this.txtboxLineSpacing.Size = new System.Drawing.Size(76, 21);
+            this.txtboxLineSpacing.Size = new System.Drawing.Size(22, 21);
             this.txtboxLineSpacing.TabIndex = 16;
-            this.txtboxLineSpacing.Text = "32";
+            this.txtboxLineSpacing.Text = "30";
             // 
             // label7
             // 
@@ -300,7 +269,6 @@
             this.comboxType.Name = "comboxType";
             this.comboxType.Size = new System.Drawing.Size(152, 20);
             this.comboxType.TabIndex = 9;
-            this.comboxType.Text = "uidialog";
             // 
             // label6
             // 
@@ -314,7 +282,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(8, 19);
+            this.label1.Location = new System.Drawing.Point(4, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 17);
@@ -332,39 +300,39 @@
             // 
             // txtboxX
             // 
-            this.txtboxX.Location = new System.Drawing.Point(108, 15);
+            this.txtboxX.Location = new System.Drawing.Point(122, 14);
             this.txtboxX.Margin = new System.Windows.Forms.Padding(2);
             this.txtboxX.Name = "txtboxX";
-            this.txtboxX.Size = new System.Drawing.Size(54, 21);
+            this.txtboxX.Size = new System.Drawing.Size(38, 21);
             this.txtboxX.TabIndex = 1;
-            this.txtboxX.Text = "400";
+            this.txtboxX.Text = "1000";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(170, 18);
+            this.label4.Location = new System.Drawing.Point(166, 17);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(10, 18);
+            this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Y";
+            this.label4.Text = "Height";
             // 
             // txtboxY
             // 
-            this.txtboxY.Location = new System.Drawing.Point(184, 15);
+            this.txtboxY.Location = new System.Drawing.Point(213, 14);
             this.txtboxY.Margin = new System.Windows.Forms.Padding(2);
             this.txtboxY.Name = "txtboxY";
-            this.txtboxY.Size = new System.Drawing.Size(56, 21);
+            this.txtboxY.Size = new System.Drawing.Size(37, 21);
             this.txtboxY.TabIndex = 2;
-            this.txtboxY.Text = "400";
+            this.txtboxY.Text = "1400";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(94, 17);
+            this.label3.Location = new System.Drawing.Point(80, 17);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 18);
+            this.label3.Size = new System.Drawing.Size(38, 18);
             this.label3.TabIndex = 5;
-            this.label3.Text = "X";
+            this.label3.Text = "Width";
             // 
             // btnAddChar
             // 
@@ -386,7 +354,6 @@
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSaveFile);
-            this.Controls.Add(this.btnAutoSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
