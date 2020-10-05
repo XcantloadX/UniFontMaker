@@ -8,18 +8,16 @@ using System.Text;
 
 namespace UnitaleFontMaker
 {
-	/// <summary>
-	/// Description of MainForm.
-	/// </summary>
+
 	public partial class MainForm : Form
 	{
 		private FontPainter painter;
 		private int width;
 		private int height;
-		private string chars;
+		//private string chars;
+        private List<char> characters = new List<char>(300);
         private Color fontColor = Color.White;
-        private const string enChars = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ";
-        private List<string> characters = new List<string>();
+        private const string ENGLISH_CHARS = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ";
         public string ModPath
 		{
 			get { return txtboxModPath.Text; }
@@ -29,10 +27,12 @@ namespace UnitaleFontMaker
         public MainForm()
 		{
 			InitializeComponent();
-			Font font = new Font("微软雅黑", 14);
+			Font font = new Font("宋体", 14);
 			Brush brush = Brushes.White;
 			painter = new FontPainter(font, 400, 400);
             picboxColor.BackColor = fontColor;
+
+            AddNewChars(ENGLISH_CHARS);
 		}
 		
         /// <summary>
@@ -80,41 +80,7 @@ namespace UnitaleFontMaker
 				throw;
 			}
 		}
-		
-        //自动保存
-		private void BtnAutoSaveClick(object sender, EventArgs e)
-		{
-            if (!SaveCheck())
-                return;
-
-            string modPath = txtboxModPath.Text;
-			string unitalePath = new DirectoryInfo(modPath).Parent.Parent.FullName;
-			string defaultFontPath = Path.Combine(unitalePath, "Default\\Sprites\\UI\\Fonts");
-			string modFontPath = Path.Combine(modPath, "Sprites\\UI\\Fonts");
-			
-			//备份原文件
-			if(Directory.Exists(modFontPath))
-				Directory.Move(modFontPath, Path.Combine(new DirectoryInfo(modFontPath).Parent.FullName, "Fonts_backup"));
-			
-			//复制默认字体文件
-			CopyDir(defaultFontPath, modFontPath);
-			
-			//删除要替换的字体文件
-			File.Delete(Path.Combine(modFontPath, "uidialog.png"));
-			File.Delete(Path.Combine(modFontPath, "uidialog.xml"));
-			
-			//保存图片
-			painter.Save(Path.Combine(modFontPath, "uidialog.png"));
-			
-			//保存XML
-			Character[] chars = painter.GetCharacters();
-			chars = painter.PositionConvert(chars);//坐标转换
-			FontXml xml = new FontXml();
-			xml.Voice = "uifont";
-			xml.LineSpacing = ((int)chars[0].Height).ToString();
-			xml.Characters = chars;
-			xml.Save(Path.Combine(modFontPath, "uidialog.xml"));
-		}
+	
 		
 		//保存为文件
 		private void BtnSaveFileClick(object sender, EventArgs e)
@@ -129,7 +95,8 @@ namespace UnitaleFontMaker
             {
                 string path = dialog.SelectedPath;
 
-                painter.Text = this.chars;
+                painter.Size = new Size(width, height);
+                painter.Characters = characters.ToArray();
                 painter.Save(Path.Combine(path, comboxType.Text + ".png"));
 
                 Character[] chars = painter.GetCharacters();
@@ -156,19 +123,19 @@ namespace UnitaleFontMaker
             }
 
             //检查字符是否为空
-            if(string.IsNullOrEmpty(chars))
+            if(characters.Count <= 0)
             {
                 ShowError("You have not added a character yet!");
                 return false;
             }
 
             //检查字体中是否含有英文字符
-            Regex regex = new Regex(@"[^\u4e00-\u9fa5]");
+            /*Regex regex = new Regex(@"[^\u4e00-\u9fa5]");
             if(!regex.IsMatch(chars))
             {
                 ShowError("No English characters found, please add to the font!");
                 return false;
-            }
+            }*/
 
             //检查行距
             if(string.IsNullOrWhiteSpace(txtboxLineSpacing.Text))
@@ -187,12 +154,24 @@ namespace UnitaleFontMaker
                 return false;
             }
 
+            //检查大小
+            try
+            {
+                width = int.Parse(txtboxX.Text);
+                height = int.Parse(txtboxY.Text);
+            }
+            catch
+            {
+                ShowError("Invalid size.");
+            }
+
             return true;
         }
 		
 		private void Button2Click(object sender, EventArgs e)
 		{
 			FontDialog dialog = new FontDialog();
+            dialog.Font = painter.font; //设置为上一次的字体，方便修改
 			dialog.ShowDialog();
 			if(dialog.Font != null)
 				painter.font = dialog.Font;
@@ -211,7 +190,8 @@ namespace UnitaleFontMaker
 				ShowError("Invalid size.");
 			}
 			
-			painter.Text = chars;
+			//painter.Text = chars;
+            painter.Characters = characters.ToArray();
 			painter.Size = new Size(width, height);
 			painter.Paint();
 			
@@ -228,24 +208,36 @@ namespace UnitaleFontMaker
 			dialog.Title = "Open a file";
 			if(dialog.ShowDialog() == DialogResult.OK)
 			{
-				chars += File.ReadAllText(dialog.FileName);
-				labCharNum.Text = "Character: " + chars.Length;
+                AddNewChars(File.ReadAllText(dialog.FileName));
 			}
             dialog.Dispose();
+
+            
 		}
 
         //清除字符
         private void btnClear_Click(object sender, EventArgs e)
         {
-            chars = "";
-            labCharNum.Text = "No characters, please add from text file.";
+            characters.Clear();
+            AddNewChars(ENGLISH_CHARS);
         }
 
         //增加英文字符
         private void btnAddEnChar_Click(object sender, EventArgs e)
         {
-            chars += enChars;
-            labCharNum.Text = "Character: " + chars.Length;
+            AddNewChars(ENGLISH_CHARS);
+            labCharNum.Text = "Character Num: " + characters.Count;
+        }
+
+        public void AddNewChars(string s)
+        {            
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!characters.Contains(s[i]))
+                    characters.Add(s[i]);
+            }
+
+            labCharNum.Text = "Character: " + characters.Count; //更新显示
         }
 
         //--------------字体颜色设置部分---------------
@@ -282,11 +274,6 @@ namespace UnitaleFontMaker
             dialog.Dispose();
 		}
 		
-		//自动模式的帮助
-		void BtnAutoModeHtlpClick(object sender, EventArgs e)
-		{
-			MessageBox.Show("If you enable this option, the text in all Lua files will be automatically scanned and added to the font.", "Auto Mode Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
 		
 		//自动扫描
 		void BtnScanClick(object sender, EventArgs e)

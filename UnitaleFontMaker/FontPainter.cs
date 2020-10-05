@@ -18,6 +18,7 @@ namespace UnitaleFontMaker
 		private int width;
 		private int height;
 		private string str;
+        private char[] characters;
 		private StringFormat format;
 		
 		public Font font;
@@ -34,6 +35,12 @@ namespace UnitaleFontMaker
 			get { return str; }
 			set { str = value; }
 		}
+
+        public char[] Characters
+        {
+            get { return characters; }
+            set { characters = value; }
+        }
 		
 		public Size Size
 		{
@@ -102,10 +109,10 @@ namespace UnitaleFontMaker
 		
 		public Character[] GetCharacters()
 		{
-			if(string.IsNullOrEmpty(Text))
+            if (Characters == null || Characters.Length <= 0)
 				return null;
 			
-			char[] chars = Text.ToCharArray();
+            char[] chars = Characters;
 			Character[] characters = new Character[chars.Length];
 			
 			float x = 0;
