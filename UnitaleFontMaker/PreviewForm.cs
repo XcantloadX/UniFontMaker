@@ -17,47 +17,29 @@ namespace UnitaleFontMaker
 		{
 			InitializeComponent();
 
+            //设置图片
 			this.painter = painter;
 			image = painter.GetImage();
 			imageSize = new Size(image.Width, image.Height);
-		}
-		
-		void PreviewFormLoad(object sender, EventArgs e)
-		{
-			Resize(imageSize.Width, imageSize.Height);
-		}
-		
-		void PictureBox1Paint(object sender, PaintEventArgs e)
-		{
-			//painter.Paint();
-		}
-		
-		private void Resize(int width, int height)
-		{
-			this.Width = width;
-			this.Height = height;
-			
-			pictureBox1.Location = new Point(0, 0 + menuStrip1.Size.Height);
-			pictureBox1.Size = new Size(this.Width, this.Height);
-			pictureBox1.Image = Image.FromHbitmap(painter.GetImage().GetHbitmap());
-		}
-		
-		//TODO: 修复预览缩放功能
-		//TODO: 增加字体绘制效果预览功能
-		void ToolStripComboBox1SelectedIndexChanged(object sender, EventArgs e)
-		{
-			string str = toolStripComboBox1.Text;
-			str = str.Replace("%", "");
-            try
-            {
-                int scale = int.Parse(str) / 100;
-                int width = (int)(imageSize.Width * scale);
-                int height = (int)(imageSize.Height * scale);
-                Resize(width, height);
-            }
-            catch { throw; }
+            pictureBox1.Image = Image.FromHbitmap(painter.GetImage().GetHbitmap());
 
+            //调整图片框大小
+            pictureBox1.Size = pictureBox1.Image.Size;
+
+            //设置滚动条
+            hScrollBar1.Maximum = pictureBox1.Image.Width - panel1.Width;
+            vScrollBar1.Maximum = pictureBox1.Image.Height - panel1.Height;
 		}
+		
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            pictureBox1.Location = new Point(-hScrollBar1.Value, pictureBox1.Location.Y);
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            pictureBox1.Location = new Point(pictureBox1.Location.X, -vScrollBar1.Value);
+        }
 		
 	}
 }
