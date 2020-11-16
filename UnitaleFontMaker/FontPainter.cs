@@ -23,9 +23,22 @@ namespace UnitaleFontMaker
 		private string str;
         private char[] characters;
 		private StringFormat format;
-		
-		public Font font;
-		
+
+        /// <summary>
+        /// 默认字体
+        /// </summary>
+        public Font Font { get; set; }
+        /// <summary>
+        /// 如果此项不为空，则绘制英文字符时使用此字体
+        /// </summary>
+        public Font EnglishFont { get; set; }
+        /// <summary>
+        /// 默认字体的 Y 坐标 Offset TODO 1
+        /// </summary>
+        public float fontYOffset = 0;
+        
+        public bool drawDebugBorders = false;
+
         /// <summary>
         /// 字体的颜色
         /// </summary>
@@ -67,7 +80,7 @@ namespace UnitaleFontMaker
 		
 		public FontPainter(Font font, int width, int height)
 		{
-			this.font = font;
+			this.Font = font;
 			brush = new SolidBrush(Color.White);
 			backBrush = new SolidBrush(Color.FromArgb(0, 0, 0, 0));
 			
@@ -101,7 +114,13 @@ namespace UnitaleFontMaker
                 int width = (int)chars[i].Width;
                 int height = (int)chars[i].Height;
 
-                gImage.DrawString(chars[i].Char.ToString(), font, brush, x, y, format);
+                Font font = this.Font;
+                if (!Character.isEnglishChar(chars[i])) //中文字体设置了 offset 的情况
+                    y += (int)fontYOffset;
+                
+                gImage.DrawString(chars[i].Char.ToString(), GetFontByChar(chars[i].Char), brush, x, y, format);
+                if (drawDebugBorders)
+                    gImage.DrawRectangle(Pens.Red, x, y, width, height);
             }
 
 		}
@@ -129,25 +148,29 @@ namespace UnitaleFontMaker
             char[] chars = Characters;
 			Character[] characters = new Character[chars.Length];
 			
-			float x = 0;
+			float x = 5;
 			float y = 0;
 			
 			for (int i = 0; i < chars.Length; i++) 
 			{
 				//转换前（左上原点）
-				float width = GetCharWidth(font, chars[i]);
-				float height = GetCharHeight(font, chars[i]);
-				
-				Character c = new Character(chars[i], x, y, width, height);
+				float width = GetCharWidth(Font, chars[i]);
+				float height = GetCharHeight(Font, chars[i]);
+
+                Character c = null;
+                if(!Character.isEnglishChar(chars[i])) //非英文字体的 Offset
+                    c = new Character(chars[i], x, y, width, height + fontYOffset);
+                else
+                    c = new Character(chars[i], x, y, width, height);
 				characters[i] = c;
 				
 				
-				x += width + 3;
+				x += width + 10;
 				
-				if(x + GetCharWidth(font, chars[i]) + 3 > this.width)
+				if(x + GetCharWidth(Font, chars[i]) + 10 > this.width)
 				{
-					x = 0;
-					y += height;
+					x = 5;
+					y += height + 10;
 				}
 			}
 			
@@ -165,13 +188,25 @@ namespace UnitaleFontMaker
 		
 		private float GetCharWidth(Font font, char c)
 		{
-			return gImage.MeasureString(c.ToString(), font, width, format).Width;
+			return gImage.MeasureString(c.ToString(), GetFontByChar(c), width, format).Width;
 		}
 		
 		private float GetCharHeight(Font font, char c)
 		{
-			return gImage.MeasureString(c.ToString(), font, width, format).Height;
+            return gImage.MeasureString(c.ToString(), GetFontByChar(c), width, format).Height;
 		}
-		
+
+        /// <summary>
+        /// 判断是使用英文字体还是默认字体
+        /// </summary>
+        /// <param name="c">待判断字符</param>
+        /// <returns>应该使用的字体</returns>
+        private Font GetFontByChar(char c)
+        {
+            if (EnglishFont != null && Character.isEnglishChar(c))
+                return EnglishFont;
+            else
+                return Font;
+        }
 	}
 }

@@ -10,7 +10,8 @@ namespace UnitaleFontMaker
 	{
 		private char _char;
 		private RectangleF rect;
-		
+        public static char[] ENGLISH_CHARS = { '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'r', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '/', '*', '-', '+', ',', '.', '?', '!', '\'', '"', ':', ';', '/', '\\', '<', '>', '(', ')', '[', ']', '(', ')', '-', '_', '=', '~', '@', '#', '$', '%', '^', '&', '*', '(', ')', ' ' }; //别忘了空格字符！
+
 		public char Char
 		{
 			get { return _char; }
@@ -53,6 +54,26 @@ namespace UnitaleFontMaker
 		{
 			
 		}
+
+        /// <summary>
+        /// 检查传入的字符是否是因为字符
+        /// </summary>
+        /// <param name="c">要检查的字符</param>
+        /// <returns>结果</returns>
+        public static bool isEnglishChar(char c)
+        {
+            return Array.IndexOf(ENGLISH_CHARS, c) >= 0;
+        }
+
+        /// <summary>
+        /// 检查传入的字符是否是因为字符
+        /// </summary>
+        /// <param name="c">要检查的字符</param>
+        /// <returns>结果</returns>
+        public static bool isEnglishChar(Character c)
+        {
+            return Array.IndexOf(ENGLISH_CHARS, c.Char) >= 0;
+        }
 			
 	}
 }

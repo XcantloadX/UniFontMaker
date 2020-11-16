@@ -14,73 +14,21 @@ namespace UnitaleFontMaker
 		private FontPainter painter;
 		private int width;
 		private int height;
-		//private string chars;
         private List<char> characters = new List<char>(300);
         private Color fontColor = Color.White;
-        private const string ENGLISH_CHARS = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ";
-        public string ModPath
-		{
-			get { return txtboxModPath.Text; }
-		}
         
         
         public MainForm()
 		{
-			InitializeComponent();
-			Font font = new Font("宋体", 14);
+            InitializeComponent();
+            Font font = new Font("宋体", 14);
 			Brush brush = Brushes.White;
 			painter = new FontPainter(font, 400, 400);
+
             picboxColor.BackColor = fontColor;
 
-            AddNewChars(ENGLISH_CHARS);
+            AddChars(Character.ENGLISH_CHARS);
 		}
-		
-        /// <summary>
-        /// 显示一个带错误图标的信息框
-        /// </summary>
-        /// <param name="str">要显示的信息</param>
-		private void ShowError(string str)
-		{
-			MessageBox.Show(str, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		}
-		
-		private void CopyDir( string srcPath, string aimPath )
-		{
-			try {
-				/* 检查目标目录是否以目录分割字符结束如果不是则添加 */
-				if ( aimPath[aimPath.Length - 1] != System.IO.Path.DirectorySeparatorChar )
-				{
-					aimPath += System.IO.Path.DirectorySeparatorChar;
-				}
-				/* 判断目标目录是否存在如果不存在则新建 */
-				if ( !System.IO.Directory.Exists( aimPath ) )
-				{
-					System.IO.Directory.CreateDirectory( aimPath );
-				}
-				/*
-				* 得到源目录的文件列表，该里面是包含文件以及目录路径的一个数组
-				* 如果你指向copy目标文件下面的文件而不包含目录请使用下面的方法
-				* string[] fileList = Directory.GetFiles（srcPath）；
-				*/
-				string[] fileList = System.IO.Directory.GetFileSystemEntries( srcPath );
-				/* 遍历所有的文件和目录 */
-				foreach ( string file in fileList )
-				{
-					/* 先当作目录处理如果存在这个目录就递归Copy该目录下面的文件 */
-					if ( System.IO.Directory.Exists( file ) )
-					{
-						CopyDir( file, aimPath + System.IO.Path.GetFileName( file ) );
-					}
-					/* 否则直接Copy文件 */
-					else {
-						System.IO.File.Copy( file, aimPath + System.IO.Path.GetFileName( file ), true );
-					}
-				}
-			} catch ( Exception e ) {
-				throw;
-			}
-		}
-	
 		
 		//保存为文件
 		private void BtnSaveFileClick(object sender, EventArgs e)
@@ -118,29 +66,21 @@ namespace UnitaleFontMaker
             //检查字体名称
             if (string.IsNullOrWhiteSpace(comboxType.Text))
             {
-                ShowError("Please enter a font name!");
+                Utils.ShowError("A font name is needed.");
                 return false;
             }
 
             //检查字符是否为空
             if(characters.Count <= 0)
             {
-                ShowError("You have not added a character yet!");
+                Utils.ShowError("Try add some characters.");
                 return false;
             }
-
-            //检查字体中是否含有英文字符
-            /*Regex regex = new Regex(@"[^\u4e00-\u9fa5]");
-            if(!regex.IsMatch(chars))
-            {
-                ShowError("No English characters found, please add to the font!");
-                return false;
-            }*/
 
             //检查行距
             if(string.IsNullOrWhiteSpace(txtboxLineSpacing.Text))
             {
-                ShowError("Line spacing is empty.");
+                Utils.ShowError("Line spacing is needed.");
                 return false;
             }
 
@@ -148,9 +88,9 @@ namespace UnitaleFontMaker
             {
                 int.Parse(txtboxLineSpacing.Text);
             }
-            catch (Exception e)
+            catch
             {
-                ShowError("Invalid line spacing.");
+                Utils.ShowError("Invalid line spacing.");
                 return false;
             }
 
@@ -162,37 +102,92 @@ namespace UnitaleFontMaker
             }
             catch
             {
-                ShowError("Invalid size.");
+                Utils.ShowError("Invalid size.");
             }
 
             return true;
         }
-		
-		private void Button2Click(object sender, EventArgs e)
+
+        private bool ApplySettings()
+        {
+            try
+            {
+                painter.Size = new Size(int.Parse(txtboxX.Text), int.Parse(txtboxY.Text));
+                painter.TextColor = fontColor;
+                painter.fontYOffset = float.Parse(textBoxFontYOffset.Text);
+                painter.drawDebugBorders = checkBoxDrawBorder.Checked;
+            }
+            catch (FormatException)
+            {
+                Utils.ShowError("Invail value! Please check if all the numbers you entered is correct.");
+            }
+
+
+            return true; //TODO 继续完善
+        }
+
+        private void btnChangeNomalFont_Click(object sender, EventArgs e)
 		{
 			FontDialog dialog = new FontDialog();
-            dialog.Font = painter.font; //设置为上一次的字体，方便修改
-			dialog.ShowDialog();
-			if(dialog.Font != null)
-				painter.font = dialog.Font;
+            dialog.Font = painter.Font; //设置为上一次的字体，方便修改
+            try
+            {
+                if (dialog.ShowDialog() == DialogResult.OK && dialog.Font != null)
+                {
+                    painter.Font = dialog.Font;
+                    lblNormalFontInfo.Text = string.Format("{0} {1}", dialog.Font.Name, dialog.Font.Size);
+                    lblNormalFontPreview.Font = dialog.Font;
+                }
+                
+            }
+            catch (ArgumentException ex)
+            {
+                if(ex.Message.Contains("TrueType"))
+                    Utils.ShowError("TrueType font is not supported! Try google how to convert .otf to .ttf .");
+            }
             dialog.Dispose();
-		}
+        }
+
+        private void btnChangeEnglishFont_Click(object sender, EventArgs e)
+        {
+            FontDialog dialog = new FontDialog();
+            dialog.Font = painter.EnglishFont; //设置为上一次的字体，方便修改
+            try
+            {
+                if (dialog.ShowDialog() == DialogResult.OK && dialog.Font != null)
+                {
+                    painter.EnglishFont = dialog.Font;
+                    lblEnglishFontInfo.Text = string.Format("{0} {1}", dialog.Font.Name, dialog.Font.Size);
+                    lblEnglishFontPreview.Font = dialog.Font;
+                }
+
+            }
+            catch (ArgumentException ex)
+            {
+                if (ex.Message.Contains("TrueType"))
+                    Utils.ShowError("TrueType font is not supported! Try google how to convert .otf to .ttf .");
+            }
+            dialog.Dispose();
+        }
 		
 		void BtnPreviewClick(object sender, EventArgs e)
 		{
+            ApplySettings();
+
 			try 
 			{
 				width = int.Parse(txtboxX.Text);
 				height = int.Parse(txtboxY.Text);
 			} 
-			catch (Exception ex) 
+			catch
 			{
-				ShowError("Invalid size.");
+				Utils.ShowError("Invalid size.");
+                return;
 			}
 			
-			//painter.Text = chars;
             painter.Characters = characters.ToArray();
 			painter.Size = new Size(width, height);
+            painter.fontYOffset = float.Parse(textBoxFontYOffset.Text);
 			painter.Paint();
 			
 			PreviewForm previewForm = new PreviewForm(painter);
@@ -201,40 +196,49 @@ namespace UnitaleFontMaker
 
         //--------------字符选择部分----------------
         //选择文件
-        void BtnAddFileClick(object sender, EventArgs e)
+        void btnAddChar_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog dialog = new OpenFileDialog();
 			dialog.Filter = "Text file(*.txt)|*.txt";
-			dialog.Title = "Open a file";
+			dialog.Title = "Open a text file:";
 			if(dialog.ShowDialog() == DialogResult.OK)
 			{
-                AddNewChars(File.ReadAllText(dialog.FileName));
+                AddChars(File.ReadAllText(dialog.FileName));
 			}
             dialog.Dispose();
-
-            
 		}
 
         //清除字符
         private void btnClear_Click(object sender, EventArgs e)
         {
             characters.Clear();
-            AddNewChars(ENGLISH_CHARS);
+            AddChars(Character.ENGLISH_CHARS);
         }
 
         //增加英文字符
         private void btnAddEnChar_Click(object sender, EventArgs e)
         {
-            AddNewChars(ENGLISH_CHARS);
+            AddChars(Character.ENGLISH_CHARS);
             labCharNum.Text = "Character Num: " + characters.Count;
         }
 
-        public void AddNewChars(string s)
+        public void AddChars(string s)
         {            
             for (int i = 0; i < s.Length; i++)
             {
                 if (!characters.Contains(s[i]))
                     characters.Add(s[i]);
+            }
+
+            labCharNum.Text = "Character: " + characters.Count; //更新显示
+        }
+
+        public void AddChars(char[] chars)
+        {
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (!characters.Contains(chars[i]))
+                    characters.Add(chars[i]);
             }
 
             labCharNum.Text = "Character: " + characters.Count; //更新显示
@@ -255,37 +259,6 @@ namespace UnitaleFontMaker
         }
 
         //-----------------Mod设置部分------------
-
-        //选择Mod路径按钮
-        void BtnOpenModClick(object sender, EventArgs e)
-		{
-			FolderBrowserDialog dialog = new FolderBrowserDialog();
-			dialog.Description = "Choose your Unitale mod.";
-			if(dialog.ShowDialog() == DialogResult.OK)
-			{
-				string path = dialog.SelectedPath;
-				if(!Directory.Exists(Path.Combine(path, "Lua")))
-				{
-					ShowError("Invalid mod directory(Must have a \"Lua\" directory).");
-					return;
-				}	
-				txtboxModPath.Text = dialog.SelectedPath;
-			}
-            dialog.Dispose();
-		}
-		
-		
-		//自动扫描
-		void BtnScanClick(object sender, EventArgs e)
-		{
-			List<string> luaFiles = new List<string>();
-			GetAllDirectory(ModPath, luaFiles);
-			
-			for (int i = 0; i < luaFiles.Count; i++) 
-			{
-				string[] strs = GetAllStrings(File.ReadAllText(luaFiles[i]));
-			}
-		}
 		
 		/// <summary>
 		/// 获取Lua文件中的所有字符串
@@ -348,6 +321,7 @@ namespace UnitaleFontMaker
 			
 			return files;
 		}
+
 
 
     }
