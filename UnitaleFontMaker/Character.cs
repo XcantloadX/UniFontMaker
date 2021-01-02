@@ -56,7 +56,7 @@ namespace UnitaleFontMaker
 		}
 
         /// <summary>
-        /// 检查传入的字符是否是因为字符
+        /// 检查传入的字符是否是英文字符
         /// </summary>
         /// <param name="c">要检查的字符</param>
         /// <returns>结果</returns>
@@ -66,7 +66,7 @@ namespace UnitaleFontMaker
         }
 
         /// <summary>
-        /// 检查传入的字符是否是因为字符
+        /// 检查传入的字符是否是英文字符
         /// </summary>
         /// <param name="c">要检查的字符</param>
         /// <returns>结果</returns>

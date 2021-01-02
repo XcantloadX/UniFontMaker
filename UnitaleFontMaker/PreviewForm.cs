@@ -12,7 +12,7 @@ namespace UnitaleFontMaker
 		private FontPainter painter;
 		private Size imageSize;
 		private Image image;
-		
+
 		public PreviewForm(FontPainter painter)
 		{
 			InitializeComponent();
@@ -40,6 +40,7 @@ namespace UnitaleFontMaker
         {
             pictureBox1.Location = new Point(pictureBox1.Location.X, -vScrollBar1.Value);
         }
+
 		
 	}
 }
