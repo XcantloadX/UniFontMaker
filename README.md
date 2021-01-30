@@ -8,8 +8,8 @@ Unitale/CYF 字体制作器
 `CharacterTemplate` 文件夹下面是常用的字符模板  
 
 ## 下载 Download
-[Github Releases](https://github.com/XcantloadX/UniFontMaker/releases)
-[百度网盘](https://pan.baidu.com/s/14wqZHakmU3nL1mBO7u6E3g)（提取码: u5n1）
+[Github Releases](https://github.com/XcantloadX/UniFontMaker/releases)  
+[百度网盘](https://pan.baidu.com/s/14wqZHakmU3nL1mBO7u6E3g)（提取码: u5n1）  
 
 ## 示例 Example
 示例 Mod 在 ChineseExampleMod 文件夹里  

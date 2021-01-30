@@ -114,8 +114,9 @@ namespace UnitaleFontMaker
             {
                 painter.Size = new Size(int.Parse(txtboxX.Text), int.Parse(txtboxY.Text));
                 painter.TextColor = fontColor;
-                painter.fontYOffset = float.Parse(textBoxFontYOffset.Text);
+                painter.fontYOffset = int.Parse(textBoxFontYOffset.Text);
                 painter.drawDebugBorders = checkBoxDrawBorder.Checked;
+                painter.SpaceWidthChar = textBoxSpaceWidthChar.Text[0];
             }
             catch (FormatException)
             {
@@ -165,7 +166,7 @@ namespace UnitaleFontMaker
             catch (ArgumentException ex)
             {
                 if (ex.Message.Contains("TrueType"))
-                    Utils.ShowError("TrueType font is not supported! Try google how to convert .otf to .ttf .");
+                    Utils.ShowError("OpenType font is not supported! Try google how to convert .otf to .ttf .");
             }
             dialog.Dispose();
         }
@@ -181,13 +182,13 @@ namespace UnitaleFontMaker
 			} 
 			catch
 			{
-				Utils.ShowError("Invalid size.");
+				Utils.ShowError("Invaild size.");
                 return;
 			}
 			
             painter.Characters = characters.ToArray();
 			painter.Size = new Size(width, height);
-            painter.fontYOffset = float.Parse(textBoxFontYOffset.Text);
+            painter.fontYOffset = int.Parse(textBoxFontYOffset.Text);
 			painter.Paint();
 			
 			PreviewForm previewForm = new PreviewForm(painter);
@@ -244,7 +245,7 @@ namespace UnitaleFontMaker
             labCharNum.Text = "Character: " + characters.Count; //更新显示
         }
 
-        //--------------字体颜色设置部分---------------
+        //--------------字体设置部分---------------
         //选择颜色
         private void btnChooseColor_Click(object sender, EventArgs e)
         {
@@ -257,6 +258,7 @@ namespace UnitaleFontMaker
             }
             dialog.Dispose();
         }
+
 
     }
 }

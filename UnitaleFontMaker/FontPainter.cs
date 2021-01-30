@@ -10,7 +10,7 @@ namespace UnitaleFontMaker
 {
 
     /// <summary>
-    /// 字体绘制
+    /// 字体绘制类
     /// </summary>
 	public class FontPainter
 	{
@@ -25,6 +25,11 @@ namespace UnitaleFontMaker
 		private StringFormat format;
 
         /// <summary>
+        /// 将会用此字符的宽度来代替默认空格字符的宽度
+        /// </summary>
+        public char SpaceWidthChar = 'A';
+
+        /// <summary>
         /// 默认字体
         /// </summary>
         public Font Font { get; set; }
@@ -35,7 +40,7 @@ namespace UnitaleFontMaker
         /// <summary>
         /// 默认字体的 Y 坐标 Offset TODO 1
         /// </summary>
-        public float fontYOffset = 0;
+        public int fontYOffset = 0;
         
         public bool drawDebugBorders = false;
 
@@ -95,7 +100,9 @@ namespace UnitaleFontMaker
 			format.FormatFlags = format.FormatFlags | StringFormatFlags.MeasureTrailingSpaces;
 		}
 		
-		
+		/// <summary>
+		/// 绘制
+		/// </summary>
 		public void Paint()
 		{
 			gImage.Clear(Color.FromArgb(0, 0, 0, 0)); //使用透明颜色清除背景
@@ -108,7 +115,7 @@ namespace UnitaleFontMaker
             //遍历绘制字符
             for (int i = 0; i < chars.Length; i++)
             {
-                //TODO ！注意一定要取整！（因为 xml 文件里只能写整数坐标，待验证）
+                //TODO ！注意一定要取整！（xml 文件里只能写整数坐标）
                 int x = (int)chars[i].X;
                 int y = (int)chars[i].Y;
                 int width = (int)chars[i].Width;
@@ -148,14 +155,14 @@ namespace UnitaleFontMaker
             char[] chars = Characters;
 			Character[] characters = new Character[chars.Length];
 			
-			float x = 5;
-			float y = 0;
+			int x = 5;
+            int y = 0;
 			
 			for (int i = 0; i < chars.Length; i++) 
 			{
 				//转换前（左上原点）
-				float width = GetCharWidth(Font, chars[i]);
-				float height = GetCharHeight(Font, chars[i]);
+				int width = (int)Math.Ceiling(GetCharWidth(Font, chars[i]));
+				int height = (int)Math.Ceiling(GetCharHeight(Font, chars[i]));
 
                 Character c = null;
                 if(!Character.isEnglishChar(chars[i])) //非英文字体的 Offset
@@ -188,6 +195,8 @@ namespace UnitaleFontMaker
 		
 		private float GetCharWidth(Font font, char c)
 		{
+            if (c == ' ' && SpaceWidthChar != ' ') //使用自定义的空格宽度代替
+                return GetCharWidth(font, SpaceWidthChar);
 			return gImage.MeasureString(c.ToString(), GetFontByChar(c), width, format).Width;
 		}
 		

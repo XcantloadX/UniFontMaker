@@ -35,6 +35,8 @@
             this.btnPreviewImage = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnChangeEnglishFont = new System.Windows.Forms.Button();
             this.lblEnglishFontPreview = new System.Windows.Forms.Label();
             this.lblNormalFontPreview = new System.Windows.Forms.Label();
@@ -48,6 +50,8 @@
             this.labCharNum = new System.Windows.Forms.Label();
             this.btnAddChar = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBoxSpaceWidthChar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.checkBoxDrawBorder = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxFontYOffset = new System.Windows.Forms.TextBox();
@@ -95,6 +99,8 @@
             // tabPage1
             // 
             resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.btnChangeEnglishFont);
             this.tabPage1.Controls.Add(this.lblEnglishFontPreview);
             this.tabPage1.Controls.Add(this.lblNormalFontPreview);
@@ -105,6 +111,16 @@
             this.tabPage1.Controls.Add(this.btnChangeNomalFont);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // btnChangeEnglishFont
             // 
@@ -181,6 +197,8 @@
             // tabPage3
             // 
             resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Controls.Add(this.textBoxSpaceWidthChar);
+            this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.checkBoxDrawBorder);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.textBoxFontYOffset);
@@ -197,6 +215,16 @@
             this.tabPage3.Controls.Add(this.txtboxY);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSpaceWidthChar
+            // 
+            resources.ApplyResources(this.textBoxSpaceWidthChar, "textBoxSpaceWidthChar");
+            this.textBoxSpaceWidthChar.Name = "textBoxSpaceWidthChar";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
             // checkBoxDrawBorder
             // 
@@ -326,5 +354,9 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label labCharNum;
         private System.Windows.Forms.Button btnAddChar;
+        private System.Windows.Forms.TextBox textBoxSpaceWidthChar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }
