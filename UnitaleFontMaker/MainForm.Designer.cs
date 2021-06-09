@@ -46,6 +46,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnChangeNomalFont = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnView = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnImport = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.labCharNum = new System.Windows.Forms.Label();
             this.btnAddChar = new System.Windows.Forms.Button();
@@ -169,11 +173,39 @@
             // tabPage2
             // 
             resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Controls.Add(this.btnView);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.btnImport);
             this.tabPage2.Controls.Add(this.btnClear);
             this.tabPage2.Controls.Add(this.labCharNum);
             this.tabPage2.Controls.Add(this.btnAddChar);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnView
+            // 
+            resources.ApplyResources(this.btnView, "btnView");
+            this.btnView.Name = "btnView";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // btnImport
+            // 
+            resources.ApplyResources(this.btnImport, "btnImport");
+            this.btnImport.Name = "btnImport";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnClear
             // 
@@ -319,6 +351,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxColor)).EndInit();
@@ -358,5 +391,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnView;
     }
 }

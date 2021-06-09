@@ -25,7 +25,8 @@ namespace UnitaleFontMaker
 		private StringFormat format;
 
         /// <summary>
-        /// 将会用此字符的宽度来代替默认空格字符的宽度
+        /// 因为空格的宽度和普通字符不一样，而 UT 中这两者一样，所以可以用
+        /// 此字符的宽度来代替默认空格字符的宽度
         /// </summary>
         public char SpaceWidthChar = 'A';
 

@@ -9,30 +9,41 @@ using System.Text;
 namespace UnitaleFontMaker
 {
 
-	public partial class MainForm : Form
-	{
-		private FontPainter painter;
-		private int width;
-		private int height;
-        private List<char> characters = new List<char>(300);
+    public partial class MainForm : Form
+    {
+        private FontPainter painter;
+        private int width;
+        private int height;
+        private List<char> _characters;
+        private List<char> Characters
+        {
+            get { return _characters; }
+            set
+            {
+                _characters = value;
+                labCharNum.Text = "Character: " + Characters.Count;
+                //更新显示 
+            }
+        }
         private Color fontColor = Color.White;
-        
-        
+
+
         public MainForm()
-		{
+        {
             InitializeComponent();
-            Font font = new Font("宋体", 14);
-			Brush brush = Brushes.White;
-			painter = new FontPainter(font, 400, 400);
+            Font font = new Font("微软雅黑", 14);
+            Brush brush = Brushes.White;
+            painter = new FontPainter(font, 400, 400);
 
             picboxColor.BackColor = fontColor;
 
+            this.Characters = new List<char>(300);
             AddChars(Character.ENGLISH_CHARS);
-		}
-		
-		//保存为文件
-		private void BtnSaveFileClick(object sender, EventArgs e)
-		{
+        }
+
+        //保存为文件
+        private void BtnSaveFileClick(object sender, EventArgs e)
+        {
             if (!SaveCheck())
                 return;
 
@@ -44,7 +55,7 @@ namespace UnitaleFontMaker
                 string path = dialog.SelectedPath;
 
                 painter.Size = new Size(width, height);
-                painter.Characters = characters.ToArray();
+                painter.Characters = Characters.ToArray();
                 painter.Save(Path.Combine(path, comboxType.Text + ".png"));
 
                 Character[] chars = painter.GetCharacters();
@@ -55,7 +66,7 @@ namespace UnitaleFontMaker
                 xml.Characters = chars;
                 xml.Save(Path.Combine(path, comboxType.Text + ".xml"));
             }
-		}
+        }
 
         /// <summary>
         /// 保存文件之前的检查工作
@@ -71,14 +82,14 @@ namespace UnitaleFontMaker
             }
 
             //检查字符是否为空
-            if(characters.Count <= 0)
+            if (Characters.Count <= 0)
             {
                 Utils.ShowError("Try add some characters.");
                 return false;
             }
 
             //检查行距
-            if(string.IsNullOrWhiteSpace(txtboxLineSpacing.Text))
+            if (string.IsNullOrWhiteSpace(txtboxLineSpacing.Text))
             {
                 Utils.ShowError("Line spacing is needed.");
                 return false;
@@ -128,8 +139,8 @@ namespace UnitaleFontMaker
         }
 
         private void btnChangeNomalFont_Click(object sender, EventArgs e)
-		{
-			FontDialog dialog = new FontDialog();
+        {
+            FontDialog dialog = new FontDialog();
             dialog.Font = painter.Font; //设置为上一次的字体，方便修改
             try
             {
@@ -139,11 +150,11 @@ namespace UnitaleFontMaker
                     lblNormalFontInfo.Text = string.Format("{0} {1}", dialog.Font.Name, dialog.Font.Size);
                     lblNormalFontPreview.Font = dialog.Font;
                 }
-                
+
             }
             catch (ArgumentException ex)
             {
-                if(ex.Message.Contains("TrueType"))
+                if (ex.Message.Contains("TrueType"))
                     Utils.ShowError("TrueType font is not supported! Try google how to convert .otf to .ttf .");
             }
             dialog.Dispose();
@@ -170,49 +181,49 @@ namespace UnitaleFontMaker
             }
             dialog.Dispose();
         }
-		
-		void BtnPreviewClick(object sender, EventArgs e)
-		{
+
+        void BtnPreviewClick(object sender, EventArgs e)
+        {
             ApplySettings();
 
-			try 
-			{
-				width = int.Parse(txtboxX.Text);
-				height = int.Parse(txtboxY.Text);
-			} 
-			catch
-			{
-				Utils.ShowError("Invaild size.");
+            try
+            {
+                width = int.Parse(txtboxX.Text);
+                height = int.Parse(txtboxY.Text);
+            }
+            catch
+            {
+                Utils.ShowError("Invaild size.");
                 return;
-			}
-			
-            painter.Characters = characters.ToArray();
-			painter.Size = new Size(width, height);
+            }
+
+            painter.Characters = Characters.ToArray();
+            painter.Size = new Size(width, height);
             painter.fontYOffset = int.Parse(textBoxFontYOffset.Text);
-			painter.Paint();
-			
-			PreviewForm previewForm = new PreviewForm(painter);
-			previewForm.Show();
-		}
+            painter.Paint();
+
+            PreviewForm previewForm = new PreviewForm(painter);
+            previewForm.Show();
+        }
 
         //--------------字符选择部分----------------
         //选择文件
         void btnAddChar_Click(object sender, EventArgs e)
-		{
-			OpenFileDialog dialog = new OpenFileDialog();
-			dialog.Filter = "Text file(*.txt)|*.txt";
-			dialog.Title = "Open a text file:";
-			if(dialog.ShowDialog() == DialogResult.OK)
-			{
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Text file(*.txt)|*.txt|All|*.*";
+            dialog.Title = "Open a text file:";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
                 AddChars(File.ReadAllText(dialog.FileName));
-			}
+            }
             dialog.Dispose();
-		}
+        }
 
         //清除字符
         private void btnClear_Click(object sender, EventArgs e)
         {
-            characters.Clear();
+            Characters.Clear();
             AddChars(Character.ENGLISH_CHARS);
         }
 
@@ -220,29 +231,29 @@ namespace UnitaleFontMaker
         private void btnAddEnChar_Click(object sender, EventArgs e)
         {
             AddChars(Character.ENGLISH_CHARS);
-            labCharNum.Text = "Character Num: " + characters.Count;
+            labCharNum.Text = "Character Num: " + Characters.Count;
         }
 
         public void AddChars(string s)
-        {            
+        {
             for (int i = 0; i < s.Length; i++)
             {
-                if (!characters.Contains(s[i]))
-                    characters.Add(s[i]);
+                if (!Characters.Contains(s[i]))
+                    Characters.Add(s[i]);
             }
 
-            labCharNum.Text = "Character: " + characters.Count; //更新显示
+            labCharNum.Text = "Character: " + Characters.Count; //更新显示
         }
 
         public void AddChars(char[] chars)
         {
             for (int i = 0; i < chars.Length; i++)
             {
-                if (!characters.Contains(chars[i]))
-                    characters.Add(chars[i]);
+                if (!Characters.Contains(chars[i]))
+                    Characters.Add(chars[i]);
             }
 
-            labCharNum.Text = "Character: " + characters.Count; //更新显示
+            labCharNum.Text = "Character: " + Characters.Count; //更新显示
         }
 
         //--------------字体设置部分---------------
@@ -250,13 +261,28 @@ namespace UnitaleFontMaker
         private void btnChooseColor_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
-            if(dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
                 fontColor = dialog.Color;
                 painter.TextColor = fontColor;
                 picboxColor.BackColor = fontColor;
             }
             dialog.Dispose();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.Description = "选择 Lua 文件夹：";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                this.Characters = new List<char>(TranslateHelper.GetAllCharactersDir(dialog.SelectedPath));
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            new CharForm(this.Characters.ToArray()).Show();
         }
 
 

@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Characters.cs" />
+    <Compile Include="CharForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharForm.Designer.cs">
+      <DependentUpon>CharForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FontPainter.cs" />
     <Compile Include="FormInput.cs">
       <SubType>Form</SubType>
@@ -79,12 +85,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TranslateHelper.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CharForm.resx">
+      <DependentUpon>CharForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInput.resx">
       <DependentUpon>FormInput.cs</DependentUpon>
     </EmbeddedResource>
