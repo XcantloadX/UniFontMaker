@@ -122,7 +122,7 @@
     <value>563, 12</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 197</value>
@@ -131,13 +131,13 @@
     <value>宋体, 12pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Line Spacing</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="lblNormalFontInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 44</value>
@@ -150,6 +150,9 @@
   </data>
   <data name="&gt;&gt;comboxType.Parent" xml:space="preserve">
     <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
@@ -191,8 +194,11 @@
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="textBoxFontYOffset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
+  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -207,8 +213,17 @@
   <data name="btnChooseColor.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
+  <data name="&gt;&gt;btnPreviewImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;btnImport.Name" xml:space="preserve">
     <value>btnImport</value>
+  </data>
+  <data name="btnTdialog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 347</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
   <data name="btnChangeNomalFont.Text" xml:space="preserve">
     <value>Change</value>
@@ -228,14 +243,14 @@
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 12</value>
   </data>
-  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>697, 390</value>
-  </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
   </data>
   <data name="&gt;&gt;btnPreviewImage.Name" xml:space="preserve">
     <value>btnPreviewImage</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;btnView.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -250,7 +265,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxSpaceWidthChar.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 40</value>
@@ -258,14 +273,11 @@
   <data name="label11.Text" xml:space="preserve">
     <value>Preview</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
     <value>697, 390</value>
-  </data>
-  <data name="btnAddChar.Text" xml:space="preserve">
-    <value>Add</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Unitale Font Maker</value>
@@ -283,7 +295,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;checkBoxDrawBorder.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 12</value>
@@ -296,6 +308,9 @@
   </data>
   <data name="&gt;&gt;label11.Name" xml:space="preserve">
     <value>label11</value>
+  </data>
+  <data name="&gt;&gt;btnTmonster.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;txtboxLineSpacing.Name" xml:space="preserve">
     <value>txtboxLineSpacing</value>
@@ -327,6 +342,9 @@
   <data name="checkBoxDrawBorder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 91</value>
+  </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>tabPage3</value>
   </data>
@@ -351,17 +369,17 @@
   <data name="btnView.Text" xml:space="preserve">
     <value>View</value>
   </data>
-  <data name="btnView.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
+  </data>
+  <data name="textBoxFontYOffset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;textBoxFontYOffset.Name" xml:space="preserve">
     <value>textBoxFontYOffset</value>
@@ -370,7 +388,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>16</value>
   </data>
   <data name="&gt;&gt;labCharNum.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -380,6 +398,9 @@
   </data>
   <data name="&gt;&gt;checkBoxDrawBorder.Name" xml:space="preserve">
     <value>checkBoxDrawBorder</value>
+  </data>
+  <data name="&gt;&gt;btnTdialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -395,6 +416,9 @@
   </data>
   <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 12</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -430,7 +454,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;txtboxX.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>17</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 12</value>
@@ -439,7 +463,7 @@
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtboxY.Text" xml:space="preserve">
-    <value>2000</value>
+    <value>500</value>
   </data>
   <data name="btnChangeEnglishFont.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -459,8 +483,8 @@
   <data name="&gt;&gt;labCharNum.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnTdialog.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;txtboxX.Name" xml:space="preserve">
     <value>txtboxX</value>
@@ -492,6 +516,9 @@
   <data name="&gt;&gt;btnClear.Parent" xml:space="preserve">
     <value>tabPage2</value>
   </data>
+  <data name="lblNormalFontInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 12pt, style=Bold</value>
   </data>
@@ -519,6 +546,12 @@
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 106</value>
   </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnChangeNomalFont.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
   <data name="btnChangeEnglishFont.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 26</value>
   </data>
@@ -533,6 +566,9 @@
   </data>
   <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
     <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnTmonster.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>Export</value>
@@ -549,6 +585,9 @@
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
+  <data name="&gt;&gt;btnTdialog.Name" xml:space="preserve">
+    <value>btnTdialog</value>
+  </data>
   <data name="&gt;&gt;label13.Name" xml:space="preserve">
     <value>label13</value>
   </data>
@@ -561,8 +600,8 @@
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 354</value>
   </data>
   <data name="&gt;&gt;label9.Name" xml:space="preserve">
     <value>label9</value>
@@ -572,9 +611,6 @@
   </data>
   <data name="&gt;&gt;txtboxLineSpacing.Parent" xml:space="preserve">
     <value>tabPage3</value>
-  </data>
-  <data name="labCharNum.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -593,6 +629,9 @@
   </data>
   <data name="txtboxX.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 422</value>
   </data>
   <data name="labCharNum.Size" type="System.Drawing.Size, System.Drawing">
     <value>252, 14</value>
@@ -633,11 +672,14 @@
   <data name="&gt;&gt;label13.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="btnChangeNomalFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 38</value>
+  </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="labCharNum.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -646,13 +688,13 @@
     <value>34</value>
   </data>
   <data name="&gt;&gt;txtboxLineSpacing.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Space Width Character</value>
+  <data name="btnTdialog.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
   </data>
   <data name="lblNormalFontPreview.Size" type="System.Drawing.Size, System.Drawing">
     <value>269, 12</value>
@@ -682,19 +724,13 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;txtboxY.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>18</value>
   </data>
   <data name="&gt;&gt;btnChooseColor.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 16</value>
@@ -710,9 +746,6 @@
   </data>
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnChooseColor.Parent" xml:space="preserve">
-    <value>tabPage3</value>
   </data>
   <data name="btnClear.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -741,8 +774,14 @@
   <data name="&gt;&gt;btnChangeEnglishFont.Name" xml:space="preserve">
     <value>btnChangeEnglishFont</value>
   </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
+  </data>
+  <data name="&gt;&gt;btnAddChar.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -759,9 +798,6 @@
   <data name="&gt;&gt;lblNormalFontPreview.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnChangeNomalFont.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
   <data name="btnClear.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 43</value>
   </data>
@@ -771,11 +807,14 @@
   <data name="lblNormalFontPreview.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="btnTmonster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 26</value>
+  </data>
   <data name="textBoxSpaceWidthChar.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
   </data>
-  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
-    <value>btnSave</value>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
   </data>
   <data name="labCharNum.Text" xml:space="preserve">
     <value>No characters, please add from text file.</value>
@@ -783,14 +822,23 @@
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
+  <data name="btnTdialog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 26</value>
+  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 12</value>
   </data>
-  <data name="btnImport.Text" xml:space="preserve">
-    <value>Import from lua directory</value>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 390</value>
+  </data>
+  <data name="checkBoxDrawBorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 179</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;picboxColor.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -819,6 +867,9 @@
   <data name="comboxType.Text" xml:space="preserve">
     <value>uidialog</value>
   </data>
+  <data name="btnTmonster.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
   <data name="btnChangeNomalFont.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
@@ -846,11 +897,14 @@
   <data name="&gt;&gt;textBoxSpaceWidthChar.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>tabPage3</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Space Width Character</value>
   </data>
   <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
     <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;btnChooseColor.Name" xml:space="preserve">
+    <value>btnChooseColor</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
@@ -869,9 +923,6 @@
   </data>
   <data name="&gt;&gt;label12.Name" xml:space="preserve">
     <value>label12</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDrawBorder.Parent" xml:space="preserve">
-    <value>tabPage3</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -896,6 +947,9 @@
   </data>
   <data name="btnPreviewImage.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 33</value>
+  </data>
+  <data name="btnTdialog.Text" xml:space="preserve">
+    <value>uidialog</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>(Choose your Lua folder, and it will automaticly import all characters from the lua scripts.)</value>
@@ -937,16 +991,19 @@
     <value>Font Name</value>
   </data>
   <data name="&gt;&gt;comboxType.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="textBoxSpaceWidthChar.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
   <data name="txtboxX.Text" xml:space="preserve">
-    <value>2000</value>
+    <value>500</value>
+  </data>
+  <data name="&gt;&gt;btnTmonster.Name" xml:space="preserve">
+    <value>btnTmonster</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -969,8 +1026,11 @@
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnPreviewImage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnImport.Text" xml:space="preserve">
+    <value>Import from lua directory</value>
+  </data>
+  <data name="btnTmonster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 347</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -981,14 +1041,11 @@
   <data name="btnChangeEnglishFont.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 196</value>
   </data>
-  <data name="btnAddChar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 35</value>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblEnglishFontPreview.Parent" xml:space="preserve">
-    <value>tabPage1</value>
   </data>
   <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -996,14 +1053,14 @@
   <data name="comboxType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="btnChangeNomalFont.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 38</value>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;txtboxY.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblNormalFontInfo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;checkBoxDrawBorder.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;txtboxY.Name" xml:space="preserve">
     <value>txtboxY</value>
@@ -1019,6 +1076,9 @@
   </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxFontYOffset.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="lblNormalFontPreview.Text" xml:space="preserve">
     <value>The quick brown fox jumps over the lazy dog.</value>
@@ -1038,14 +1098,29 @@
   <data name="lblEnglishFontPreview.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;btnAddChar.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnTmonster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
     <value>39, 97</value>
   </data>
+  <data name="&gt;&gt;btnTdialog.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;txtboxLineSpacing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="btnAddChar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 35</value>
   </data>
   <data name="&gt;&gt;lblNormalFontInfo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1059,14 +1134,14 @@
   <data name="textBoxFontYOffset.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="&gt;&gt;btnImport.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>English Font (Optional)</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>704, 465</value>
   </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>English Font (Optional)</value>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="btnChangeEnglishFont.Text" xml:space="preserve">
     <value>Change</value>
@@ -1083,9 +1158,6 @@
   <data name="lblEnglishFontInfo.Text" xml:space="preserve">
     <value>Empty</value>
   </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
@@ -1098,14 +1170,14 @@
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
   </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+  <data name="btnAddChar.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;lblEnglishFontPreview.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;btnAddChar.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="checkBoxDrawBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 179</value>
+  <data name="&gt;&gt;btnChooseColor.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
   <data name="btnView.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 35</value>
@@ -1113,11 +1185,11 @@
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 117</value>
   </data>
-  <data name="&gt;&gt;btnChooseColor.Name" xml:space="preserve">
-    <value>btnChooseColor</value>
+  <data name="&gt;&gt;btnImport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 422</value>
+  <data name="btnTmonster.Text" xml:space="preserve">
+    <value>monster</value>
   </data>
   <data name="lblNormalFontPreview.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -1129,7 +1201,7 @@
     <value>or</value>
   </data>
   <data name="&gt;&gt;picboxColor.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1137,14 +1209,14 @@
   <data name="txtboxLineSpacing.Text" xml:space="preserve">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;textBoxFontYOffset.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
   </data>
-  <data name="&gt;&gt;txtboxLineSpacing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 91</value>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Load built-in templates</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
     <value>697, 390</value>
@@ -1156,7 +1228,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
   <data name="lblNormalFontPreview.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 97</value>
@@ -1179,22 +1251,25 @@
   <data name="&gt;&gt;labCharNum.Parent" xml:space="preserve">
     <value>tabPage2</value>
   </data>
+  <data name="btnTmonster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;lblEnglishFontInfo.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
   <data name="picboxColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;btnAddChar.Parent" xml:space="preserve">
-    <value>tabPage2</value>
+  <data name="btnView.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="&gt;&gt;btnView.Parent" xml:space="preserve">
     <value>tabPage2</value>
   </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh-Hans</value>
   </metadata>
 </root>

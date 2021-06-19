@@ -54,6 +54,9 @@
             this.labCharNum = new System.Windows.Forms.Label();
             this.btnAddChar = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnTmonster = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnTdialog = new System.Windows.Forms.Button();
             this.textBoxSpaceWidthChar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBoxDrawBorder = new System.Windows.Forms.CheckBox();
@@ -229,6 +232,9 @@
             // tabPage3
             // 
             resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Controls.Add(this.btnTmonster);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.btnTdialog);
             this.tabPage3.Controls.Add(this.textBoxSpaceWidthChar);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.checkBoxDrawBorder);
@@ -247,6 +253,25 @@
             this.tabPage3.Controls.Add(this.txtboxY);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnTmonster
+            // 
+            resources.ApplyResources(this.btnTmonster, "btnTmonster");
+            this.btnTmonster.Name = "btnTmonster";
+            this.btnTmonster.UseVisualStyleBackColor = true;
+            this.btnTmonster.Click += new System.EventHandler(this.btnTmonster_Click);
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // btnTdialog
+            // 
+            resources.ApplyResources(this.btnTdialog, "btnTdialog");
+            this.btnTdialog.Name = "btnTdialog";
+            this.btnTdialog.UseVisualStyleBackColor = true;
+            this.btnTdialog.Click += new System.EventHandler(this.btnTdialog_Click);
             // 
             // textBoxSpaceWidthChar
             // 
@@ -395,5 +420,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnTmonster;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnTdialog;
     }
 }

@@ -10,7 +10,7 @@ namespace UnitaleFontMaker
     public class TranslateHelper
     {
         public delegate void GetProgress(float progress);
-        public static char[] GetAllCharactersFile(string filePath, GetProgress callback = null)
+        public static char[] GetAllCharactersFile(string filePath)
         {
             string contents = File.ReadAllText(filePath);
             HashSet<char> chars = new HashSet<char>();
@@ -28,7 +28,7 @@ namespace UnitaleFontMaker
         /// <param name="dirPath">目录</param>
         /// <param name="callback">回调。用于显示进度</param>
         /// <returns></returns>
-        public static char[] GetAllCharactersDir(string dirPath, GetProgress callback = null)
+        public static char[] GetAllCharactersDir(string dirPath)
         {
             HashSet<char> chars = new HashSet<char>();
             DirectoryInfo dir = new DirectoryInfo(dirPath);
@@ -41,20 +41,23 @@ namespace UnitaleFontMaker
             FileInfo[] files = dir.GetFiles("*.lua");
             foreach (FileInfo f in files)
             {
+                Console.WriteLine(f.FullName);
                 FileStream fs = f.OpenRead();
                 byte[] buff = new byte[fs.Length];
                 fs.Read(buff, 0, (int)fs.Length); //TODO 潜在的溢出问题
                 fs.Close();
                 string contents = System.Text.Encoding.UTF8.GetString(buff);
 
-
                 for (int i = 0; i < contents.Length; i++)
                 {
                     chars.Add(contents[i]);
+                    Console.WriteLine(contents[i] == '\n');
                 }
             }
 
-
+            //这两个会造成显示错误
+            chars.Remove('\n');
+            chars.Remove('\r');
             return chars.ToArray();
         }
 

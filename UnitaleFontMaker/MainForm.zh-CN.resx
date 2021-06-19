@@ -130,13 +130,28 @@
   <data name="label10.Text" xml:space="preserve">
     <value>预览</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 35</value>
+  </data>
+  <data name="btnView.Text" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 12</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>加载内置模板</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>空格宽度字符</value>
   </data>
   <data name="btnChooseColor.Text" xml:space="preserve">
     <value>选择</value>
+  </data>
+  <data name="txtboxX.Text" xml:space="preserve">
+    <value>1000</value>
+  </data>
+  <data name="txtboxY.Text" xml:space="preserve">
+    <value>1000</value>
   </data>
 </root>

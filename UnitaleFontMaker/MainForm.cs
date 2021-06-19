@@ -25,7 +25,7 @@ namespace UnitaleFontMaker
                 //更新显示 
             }
         }
-        private Color fontColor = Color.White;
+        private Color fontColor = Color.White; //TODO 重构这玩意 getter/setter
 
 
         public MainForm()
@@ -264,7 +264,7 @@ namespace UnitaleFontMaker
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 fontColor = dialog.Color;
-                painter.TextColor = fontColor;
+                //painter.TextColor = fontColor;
                 picboxColor.BackColor = fontColor;
             }
             dialog.Dispose();
@@ -284,6 +284,27 @@ namespace UnitaleFontMaker
         {
             new CharForm(this.Characters.ToArray()).Show();
         }
+
+        
+        //模板按钮
+
+        private void btnTmonster_Click(object sender, EventArgs e)
+        {
+            comboxType.Text = "monster";
+            txtboxLineSpacing.Text = "18";
+            fontColor = Color.Black;
+            picboxColor.BackColor = Color.Black;
+        }
+
+        private void btnTdialog_Click(object sender, EventArgs e)
+        {
+            comboxType.Text = "uidialog";
+            txtboxLineSpacing.Text = "30";
+            fontColor = Color.White;
+            picboxColor.BackColor = Color.White;
+        }
+
+
 
 
     }
