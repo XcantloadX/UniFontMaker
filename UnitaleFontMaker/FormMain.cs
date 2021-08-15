@@ -9,7 +9,7 @@ using System.Text;
 namespace UnitaleFontMaker
 {
 
-    public partial class MainForm : Form
+    public partial class FormMain : Form
     {
         private FontPainter painter;
         private int width;
@@ -28,7 +28,7 @@ namespace UnitaleFontMaker
         private Color fontColor = Color.White; //TODO 重构这玩意 getter/setter
 
 
-        public MainForm()
+        public FormMain()
         {
             InitializeComponent();
             Font font = new Font("微软雅黑", 14);
@@ -202,7 +202,7 @@ namespace UnitaleFontMaker
             painter.fontYOffset = int.Parse(textBoxFontYOffset.Text);
             painter.Paint();
 
-            PreviewForm previewForm = new PreviewForm(painter);
+            FormPreview previewForm = new FormPreview(painter);
             previewForm.Show();
         }
 
@@ -282,7 +282,7 @@ namespace UnitaleFontMaker
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            new CharForm(this.Characters.ToArray()).Show();
+            new FormChar(this.Characters.ToArray()).Show();
         }
 
         
@@ -304,8 +304,9 @@ namespace UnitaleFontMaker
             picboxColor.BackColor = Color.White;
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
-
-
+        }
     }
 }

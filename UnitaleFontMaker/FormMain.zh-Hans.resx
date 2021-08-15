@@ -123,69 +123,18 @@
   <data name="btnPreviewImage.Text" xml:space="preserve">
     <value>图片预览</value>
   </data>
-  <data name="btnChangeEnglishFont.Text" xml:space="preserve">
-    <value>选择字体</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblEnglishFontInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 12</value>
-  </data>
-  <data name="lblEnglishFontInfo.Text" xml:space="preserve">
-    <value>空</value>
-  </data>
-  <data name="lblNormalFontInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 12</value>
-  </data>
-  <data name="lblNormalFontInfo.Text" xml:space="preserve">
-    <value>空</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 16</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>英文字体（可选）</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>普通字体</value>
-  </data>
-  <data name="btnChangeNomalFont.Text" xml:space="preserve">
-    <value>选择字体</value>
-  </data>
   <data name="tabPage1.Text" xml:space="preserve">
     <value>字体设置</value>
   </data>
-  <data name="btnView.Text" xml:space="preserve">
-    <value>预览</value>
-  </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>371, 12</value>
-  </data>
-  <data name="label13.Text" xml:space="preserve">
-    <value>（选择包含 Lua 脚本的文件夹，程序会自动导入脚本中用到的字符）</value>
-  </data>
-  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>或者</value>
-  </data>
-  <data name="btnImport.Text" xml:space="preserve">
-    <value>从 Lua 文件夹导入</value>
-  </data>
-  <data name="btnClear.Text" xml:space="preserve">
-    <value>清除</value>
-  </data>
-  <data name="labCharNum.Text" xml:space="preserve">
-    <value>当前没有字符</value>
-  </data>
-  <data name="btnAddChar.Text" xml:space="preserve">
-    <value>添加</value>
-  </data>
   <data name="tabPage2.Text" xml:space="preserve">
     <value>字符设置</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 12</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>加载内置模板</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 12</value>
@@ -228,6 +177,63 @@
   </data>
   <data name="tabPage3.Text" xml:space="preserve">
     <value>导出设置</value>
+  </data>
+  <data name="btnChangeEnglishFont.Text" xml:space="preserve">
+    <value>选择字体</value>
+  </data>
+  <data name="lblEnglishFontInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 12</value>
+  </data>
+  <data name="lblEnglishFontInfo.Text" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="lblNormalFontInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 12</value>
+  </data>
+  <data name="lblNormalFontInfo.Text" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 16</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>英文字体（可选）</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 16</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>普通字体</value>
+  </data>
+  <data name="btnChangeNomalFont.Text" xml:space="preserve">
+    <value>选择字体</value>
+  </data>
+  <data name="btnView.Text" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 12</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>（选择 Mod 里的 Lua 文件夹，程序会自动导入脚本中用到的字符）</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>或者</value>
+  </data>
+  <data name="btnImport.Text" xml:space="preserve">
+    <value>从 Lua 文件夹导入</value>
+  </data>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="labCharNum.Text" xml:space="preserve">
+    <value>当前没有字符</value>
+  </data>
+  <data name="btnAddChar.Text" xml:space="preserve">
+    <value>从文件导入</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Unitale 字体制作器</value>

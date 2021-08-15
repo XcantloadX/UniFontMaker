@@ -52,11 +52,11 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Characters.cs" />
-    <Compile Include="CharForm.cs">
+    <Compile Include="FormChar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CharForm.Designer.cs">
-      <DependentUpon>CharForm.cs</DependentUpon>
+    <Compile Include="FormChar.Designer.cs">
+      <DependentUpon>FormChar.cs</DependentUpon>
     </Compile>
     <Compile Include="FontPainter.cs" />
     <Compile Include="FormInput.cs">
@@ -65,17 +65,17 @@
     <Compile Include="FormInput.Designer.cs">
       <DependentUpon>FormInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreviewForm.cs">
+    <Compile Include="FormPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PreviewForm.Designer.cs">
-      <DependentUpon>PreviewForm.cs</DependentUpon>
+    <Compile Include="FormPreview.Designer.cs">
+      <DependentUpon>FormPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,26 +92,26 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CharForm.resx">
-      <DependentUpon>CharForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormChar.resx">
+      <DependentUpon>FormChar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInput.resx">
       <DependentUpon>FormInput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.zh-CN.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.zh-CN.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.zh-Hans.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.zh-Hans.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.resx">
-      <DependentUpon>PreviewForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormPreview.resx">
+      <DependentUpon>FormPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewForm.zh-Hans.resx">
-      <DependentUpon>PreviewForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormPreview.zh-Hans.resx">
+      <DependentUpon>FormPreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

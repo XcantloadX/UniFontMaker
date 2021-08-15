@@ -9,20 +9,22 @@ using System.Windows.Forms;
 
 namespace UnitaleFontMaker
 {
-    public partial class CharForm : Form
+    public partial class FormChar : Form
     {
-        public CharForm(char[] chars)
+        private char[] chars;
+        public FormChar(char[] chars)
         {
             InitializeComponent();
-            StringBuilder sb = new StringBuilder(chars.Length * 2);
-            for(int i = 0; i < chars.Length; i++)
-                sb.AppendLine(chars[i].ToString());
-            textBox1.Text = sb.ToString();
+            this.chars = chars;
         }
 
         private void CharForm_Load(object sender, EventArgs e)
         {
-
+            foreach (char c in chars)
+            {
+                listBox1.Items.Add(c);
+            }
+            
         }
     }
 }

@@ -58,6 +58,7 @@ namespace UnitaleFontMaker
             //这两个会造成显示错误
             chars.Remove('\n');
             chars.Remove('\r');
+            chars.UnionWith(new HashSet<char>(Character.ENGLISH_CHARS)); //确保有全部的英文字符
             return chars.ToArray();
         }
 

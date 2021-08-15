@@ -7,13 +7,13 @@ namespace UnitaleFontMaker
 	/// <summary>
 	/// 字体图像预览窗口
 	/// </summary>
-	public partial class PreviewForm : Form
+	public partial class FormPreview : Form
 	{
 		private FontPainter painter;
 		private Size imageSize;
 		private Image image;
 
-		public PreviewForm(FontPainter painter)
+		public FormPreview(FontPainter painter)
 		{
 			InitializeComponent();
 

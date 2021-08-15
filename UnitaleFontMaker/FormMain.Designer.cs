@@ -1,6 +1,6 @@
 ﻿namespace UnitaleFontMaker
 {
-	partial class MainForm
+	partial class FormMain
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -30,7 +30,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.btnSave = new System.Windows.Forms.Button();
             this.btnPreviewImage = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -362,7 +362,7 @@
             resources.ApplyResources(this.txtboxY, "txtboxY");
             this.txtboxY.Name = "txtboxY";
             // 
-            // MainForm
+            // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -371,7 +371,7 @@
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "FormMain";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
